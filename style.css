@@ -1,95 +1,248 @@
 
-/* Basic page settings */
+/* ===== General Settings ===== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --background: #080d1b;
+    --card: #111a2e;
+    --primary: #60a5fa;
+    --secondary: #a78bfa;
+    --text: #f1f5f9;
+    --muted: #a6b3c8;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f7fb;
-    color: #263238;
-    line-height: 1.6;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.7;
 }
 
-/* Header */
+/* ===== Header / Hero Section ===== */
 header {
-    background-color: #172554;
-    color: white;
+    min-height: 330px;
+    padding: 90px 20px 70px;
     text-align: center;
-    padding: 45px 20px;
+    background:
+        radial-gradient(circle at 20% 20%, #243b70 0, transparent 38%),
+        radial-gradient(circle at 80% 70%, #38245e 0, transparent 35%),
+        #0b1224;
+    border-bottom: 1px solid #24314b;
 }
 
 header h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
+    font-size: clamp(2.3rem, 6vw, 4rem);
+    font-weight: 800;
+    letter-spacing: -1px;
+    background: linear-gradient(90deg, #60a5fa, #c4b5fd);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 12px;
 }
 
-/* Navigation bar */
+header p {
+    color: var(--muted);
+    font-size: 1.1rem;
+}
+
+/* ===== Navigation ===== */
 nav {
-    background-color: #1e40af;
-    text-align: center;
-    padding: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 16px;
+    background: rgba(8, 13, 27, 0.94);
+    border-bottom: 1px solid #26334c;
+    backdrop-filter: blur(12px);
 }
 
 nav a {
-    color: white;
+    color: #dbeafe;
     text-decoration: none;
-    margin: 0 12px;
-    font-weight: bold;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: 0.3s ease;
 }
 
 nav a:hover {
-    color: #bfdbfe;
+    color: white;
+    background: #263b61;
+    transform: translateY(-2px);
 }
 
-/* Content sections */
+/* ===== Main Sections ===== */
 section {
-    background-color: white;
-    max-width: 900px;
-    margin: 25px auto;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    max-width: 950px;
+    margin: 30px auto;
+    padding: 32px;
+    background: linear-gradient(145deg, #131e34, #0e172a);
+    border: 1px solid #263651;
+    border-radius: 18px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+    transition: border-color 0.3s, transform 0.3s;
+    scroll-margin-top: 85px;
+}
+
+section:hover {
+    border-color: #5578bd;
+    transform: translateY(-3px);
 }
 
 section h2 {
-    color: #1e40af;
+    display: inline-block;
+    color: var(--primary);
+    font-size: 1.7rem;
+    margin-bottom: 18px;
+}
+
+section h2::after {
+    content: "";
+    display: block;
+    width: 55px;
+    height: 3px;
+    margin-top: 6px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    border-radius: 5px;
+}
+
+section p {
+    color: var(--muted);
     margin-bottom: 12px;
 }
 
 section h3 {
-    margin-top: 15px;
-    margin-bottom: 5px;
+    color: #ddd6fe;
+    margin: 18px 0 6px;
 }
 
+/* ===== Skills List ===== */
 section ul {
-    padding-left: 25px;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 12px;
 }
 
-/* Footer */
+section li {
+    background: #1b2a45;
+    color: #bfdbfe;
+    border: 1px solid #33496e;
+    padding: 9px 15px;
+    border-radius: 9px;
+    transition: 0.3s ease;
+}
+
+section li:hover {
+    background: #29416a;
+    border-color: var(--primary);
+    transform: translateY(-3px);
+}
+
+/* ===== Project Headings ===== */
+#projects h3 {
+    display: inline-block;
+    color: #c4b5fd;
+    background: rgba(167, 139, 250, 0.08);
+    padding: 7px 12px;
+    border-left: 3px solid var(--secondary);
+    border-radius: 0 7px 7px 0;
+}
+
+/* ===== Pull Request Workflow ===== */
+#workflow {
+    background:
+        linear-gradient(135deg, rgba(37, 99, 235, 0.13),
+        rgba(139, 92, 246, 0.12)),
+        var(--card);
+}
+
+#workflow p {
+    border-left: 3px solid var(--primary);
+    padding-left: 15px;
+}
+
+/* ===== Contact Section ===== */
+#contact p {
+    padding: 10px 14px;
+    background: #18243a;
+    border-radius: 8px;
+    overflow-wrap: anywhere;
+}
+
+/* ===== Footer ===== */
 footer {
-    background-color: #172554;
-    color: white;
     text-align: center;
-    padding: 18px;
-    margin-top: 30px;
+    padding: 25px 15px;
+    color: #94a3b8;
+    background: #060a14;
+    border-top: 1px solid #26334b;
+    margin-top: 50px;
+    font-size: 0.9rem;
 }
 
-/* Mobile-friendly layout */
+footer p {
+    margin: 0;
+}
+
+/* ===== Responsive Design ===== */
 @media (max-width: 600px) {
-    header h1 {
-        font-size: 28px;
+    header {
+        min-height: auto;
+        padding: 65px 18px;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    nav {
+        gap: 4px;
+        padding: 10px 6px;
     }
 
     nav a {
-        display: inline-block;
-        margin: 6px;
+        font-size: 0.85rem;
+        padding: 7px 9px;
     }
 
     section {
-        margin: 15px;
-        padding: 20px;
+        margin: 18px 12px;
+        padding: 22px 18px;
+        border-radius: 14px;
+    }
+
+    section h2 {
+        font-size: 1.45rem;
+    }
+
+    section ul {
+        gap: 8px;
+    }
+
+    section li {
+        padding: 7px 10px;
+        font-size: 0.9rem;
+    }
+}
+
+/* ===== Accessibility ===== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
     }
 }
